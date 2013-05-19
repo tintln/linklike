@@ -11,7 +11,15 @@ import org.junit.*
 @TestFor(Link)
 class LinkTests {
 
-    void testSomething() {
-       fail "Implement me"
-    }
+    void testCanCreateNewLink() {
+		def link = new Link(title: 'Google', link:'www.google.com')
+		assert link != null
+	}
+
+	void testIncreaseVotes(){
+		def link = new Link(title: 'MSN', link:'www.msn.com')
+		assertEquals 0, link.votes
+		link.increaseVotes()
+		assertEquals 1, link.votes
+	}
 }
